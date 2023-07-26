@@ -21,6 +21,6 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore '../PackageBuilder/TestPackage.wixproj'
+      run: dotnet restore 'PackageBuilder/TestPackage.wixproj'
     - name: Build
-      run: dotnet build '../PackageBuilder/TestPackage.wixproj' -c Release
+      run: dotnet build 'PackageBuilder/TestPackage.wixproj' -c Release
