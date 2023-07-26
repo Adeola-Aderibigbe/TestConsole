@@ -25,4 +25,4 @@ jobs:
     - name: Build
       run: dotnet build 'PackageBuilder/TestPackage.wixproj' -c Release
     - name: Publish
-      run: dotnet publish 'PackageBuilder/TestPackage.wixproj'
+      run: dotnet publish 'PackageBuilder/TestPackage.wixproj' -c Release -o bin/release/en-US
