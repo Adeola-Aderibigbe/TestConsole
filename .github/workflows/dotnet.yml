@@ -24,3 +24,5 @@ jobs:
       run: dotnet restore 'PackageBuilder/TestPackage.wixproj'
     - name: Build
       run: dotnet build 'PackageBuilder/TestPackage.wixproj' -c Release
+    - name: Publish
+      run: dotnet publish 'PackageBuilder/TestPackage.wixproj'
