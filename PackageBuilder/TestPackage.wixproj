@@ -1,16 +1,16 @@
 ﻿<Project Sdk="WixToolset.Sdk/4.0.0">
   <ItemGroup>
-    <HarvestDirectory Include="..\TestConsole\bin\Release">
-		<ComponentGroupName>HarvestedComponents</ComponentGroupName>
+    <HarvestDirectory Include="..\TestSrc\\bin\Release">
+      <ComponentGroupName>HarvestedComponents</ComponentGroupName>
       <DirectoryRefId>INSTALLFOLDER</DirectoryRefId>
       <SuppressRootDirectory>true</SuppressRootDirectory>
     </HarvestDirectory>
-    <BindPath Include="..\TestConsole\bin\Release" />
+    <BindPath Include="..\TestSrc\bin\Release" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="WixToolset.Heat" Version="4.0.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TestConsole\TestConsole.csproj" />
+    <ProjectReference Include="..\TestSrc\TestConsole.csproj" />
   </ItemGroup>
 </Project>
