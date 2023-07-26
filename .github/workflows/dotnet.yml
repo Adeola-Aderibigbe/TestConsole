@@ -7,18 +7,16 @@ on:
   push:
     branches: [ "master" ]
 
-jobs:
-  buildandPackage:
-
-    runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 4.8.x
+        dotnet-version: 5.x.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore 'PackageBuilder/TestPackage.wixproj'
     - name: Build
-      run: dotnet build '../packagebuilder/TestPackage.wixproj'
+      run: dotnet build 'PackageBuilder/TestPackage.wixproj' -c Release
+    - name: Publish
+      run: dotnet publish 'PackageBuilder/TestPackage.wixproj' -c Release -o bin/release/en-US
+
