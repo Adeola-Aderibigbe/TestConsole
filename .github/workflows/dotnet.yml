@@ -11,7 +11,7 @@ on:
     
 jobs:
  Build_and_Publish:
-  runs-on: ubuntu-latest
+  runs-on: windows-latest
   steps:
     - uses: actions/checkout@v3
     - name: Setup .NET
@@ -23,9 +23,10 @@ jobs:
     - name: Build
       run: dotnet build 'PackageBuilder/TestPackage.wixproj' -c Release
     - name: Zip files
-      uses: montudor/action-zip@v1
+      uses: vimtor/action-zip@v1
       with:
-        args: zip -qq -r testpackage.zip PackageBuilder/bin/release/en-US
+        files: PackageBuilder/bin/release/en-US
+        dest: TestPackage.zip
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
