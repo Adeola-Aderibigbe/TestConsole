@@ -6,8 +6,11 @@ name: .NET
 on:
   push:
     branches: [ "master" ]
-
-    steps:
+    
+jobs:
+ BuildandPublish:
+  runs-on: windows-latest
+  steps:
     - uses: actions/checkout@v3
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
