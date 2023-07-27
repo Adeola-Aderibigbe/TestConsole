@@ -43,7 +43,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
       with:
        upload_url: ${{ steps.create_release.outputs.upload_url }}
-       asset_path: 'PackageBuilder/bin/release/en-US/TestPackage.zip'
+       asset_path: 'TestPackage.zip'
        asset_name: 'Testing_Console_v1.0.${{ github.run_number }}.zip'
        asset_content_type: application/zip
         
