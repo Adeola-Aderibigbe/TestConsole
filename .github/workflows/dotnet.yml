@@ -11,7 +11,7 @@ on:
     
 jobs:
  Build_and_Publish:
-  runs-on: windows-latest
+  runs-on: ubuntu-latest
   steps:
     - uses: actions/checkout@v3
     - name: Setup .NET
