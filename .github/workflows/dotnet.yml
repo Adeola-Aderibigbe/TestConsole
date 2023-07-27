@@ -33,7 +33,7 @@ jobs:
         draft: false
         prelease: false
     - name: Upload setup
-      uses: actions/upload-release-assest@v1
+      uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
       with:
