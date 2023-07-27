@@ -6,9 +6,11 @@ name: .NET
 on:
   push:
     branches: [ "master" ]
+  pull_request:
+    branches: ["master"]
     
 jobs:
- BuildandPublish:
+ Build_and_Publish:
   runs-on: windows-latest
   steps:
     - uses: actions/checkout@v3
@@ -20,6 +22,24 @@ jobs:
       run: dotnet restore 'PackageBuilder/TestPackage.wixproj'
     - name: Build
       run: dotnet build 'PackageBuilder/TestPackage.wixproj' -c Release
-    - name: Publish
-      run: dotnet publish 'PackageBuilder/TestPackage.wixproj' -c Release -o bin/release/en-US
-
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+      with:
+        tag_name: 1.0.${{ github.run_number }}
+        release_name: 1.0.${{ github.run_number }}
+        draft: false
+        prerelease: false
+    - name: Upload setup
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+      with:
+       upload_url: ${{ steps.create_release.outputs.upload_url }}
+       assest_path: 'bin/release/en-US/TestPackage.msi'
+       assest_name: 'Testing_Console_v1.0.${{ github.run_number }}.msi'
+       asset_content_type: application/x-msi
+        
+     
