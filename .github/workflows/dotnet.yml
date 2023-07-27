@@ -38,8 +38,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
       with:
        upload_url: ${{ steps.create_release.outputs.upload_url }}
-       assest_path: 'bin/release/en-US/TestPackage.msi'
-       assest_name: 'Testing_Console_v1.0.${{ github.run_number }}.msi'
+       asset_path: 'bin/release/en-US/TestPackage.msi'
+       asset_name: 'Testing_Console_v1.0.${{ github.run_number }}.msi'
        asset_content_type: application/x-msi
         
      
