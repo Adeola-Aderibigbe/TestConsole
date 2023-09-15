@@ -1,9 +1,11 @@
 ﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
-  <Package Name="TestPackage" Manufacturer="Adeola Aderibigbe" Version="1.0.0.0" UpgradeCode="a935e5ee-6d6f-4301-9424-393813951050">
+		
+  <Package Name="TestPackage $(Version)" Manufacturer="Adeola Aderibigbe" Version="$(Version)" UpgradeCode="a935e5ee-6d6f-4301-9424-393813951050">
     <MajorUpgrade DowngradeErrorMessage="!(loc.DowngradeError)" />
+	  <MediaTemplate EmbedCab="yes" />
 
     <Feature Id="Main">
-      <ComponentGroupRef Id="HarvestedComponents" />
+		<ComponentGroupRef Id="HarvestedComponents" />
     </Feature>
   </Package>
 </Wix>

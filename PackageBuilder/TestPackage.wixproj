@@ -1,4 +1,7 @@
 ﻿<Project Sdk="WixToolset.Sdk/4.0.0">
+  <PropertyGroup>
+    <DefineConstants>Version=$(Version)</DefineConstants>
+  </PropertyGroup>
   <ItemGroup>
     <HarvestDirectory Include="..\TestSrc\\bin\Release">
       <ComponentGroupName>HarvestedComponents</ComponentGroupName>
