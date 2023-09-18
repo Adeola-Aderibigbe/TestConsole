@@ -18,10 +18,12 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 5.x.x
-    - name: Restore dependencies
-      run: dotnet restore 'PackageBuilder/TestPackage.wixproj'
-    - name: Build
-      run: dotnet build 'PackageBuilder/TestPackage.wixproj' -c Release
+    - name: Restore dependencies for project
+      run: dotnet restore 'TestSrc/TestConsole.csproj'
+    - name: Build project
+      run: dotnet build 'TestSrc/TestConsole.csproj' -c Release
+    - name: Build msi
+      run: msbuild /p:Configuration="Release"
     - name: Zip files
       uses: vimtor/action-zip@v1
       with:
