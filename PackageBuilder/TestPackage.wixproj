@@ -5,8 +5,8 @@
       <DirectoryRefId>INSTALLFOLDER</DirectoryRefId>
       <SuppressRootDirectory>true</SuppressRootDirectory>
     </HarvestDirectory>
-    <BindPath Include="..\TestSrc\bin\Release"  />
-	  <Exclude Remove="TestConsole.exe" />
+    <BindPath Include="..\TestSrc\bin\Release" />
+    <Exclude Remove="TestConsole.exe" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="WixToolset.Heat" Version="4.0.1" />

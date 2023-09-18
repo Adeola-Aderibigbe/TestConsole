@@ -1,12 +1,12 @@
-﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
-   <?define VersionNumber ="!(bind.fileVersion.filwuRcm__rfdbi1KpfXlyCIyhvLA0T)"?>
+﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" >
+   <?define VersionNumber ="!(bind.fileVersion.TestApplication)"?>
    <Package Name="TestPackage $(VersionNumber)" Manufacturer="Adeola Aderibigbe" Version="$(VersionNumber)" UpgradeCode="a935e5ee-6d6f-4301-9424-393813951050">
    <MajorUpgrade Schedule="afterInstallInitialize" DowngradeErrorMessage="!(loc.DowngradeError)" />
    <MediaTemplate EmbedCab="yes" />
    <Icon Id="icon.exe" SourceFile="testIcon.png"/>
    <Property Id="ARPPRODUCTICON" Value="icon.exe" />
     <Feature Id="Main">
-		<ComponentGroupRef Id="HarvestedComponents" />
+		<ComponentGroupRef Id="HarvestedComponents"/>
 		<ComponentGroupRef Id="ShortcutComponent"/>
     </Feature>
   </Package>

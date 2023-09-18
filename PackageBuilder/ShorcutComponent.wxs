@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
-  <Fragment>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:fg="http://www.firegiant.com/schemas/v3/wxs/fgwep.xsd">
+	<?define application = ..\TestSrc\bin\Release\TestConsole.exe ?>
+	<Fragment>
+		<Component Id="TestApplication" Guid="5adbee02-b0c6-4e27-b6d6-a82f3ef9ca95" Directory="INSTALLFOLDER">
+			<File Id="TestApplication"  Name="Test Console.exe" Source="..\TestSrc\bin\Release\TestConsole.exe" />
+		</Component>
 	  <DirectoryRef Id ="ApplicationProgramFolder">
 		  <Component Id="ApplicationShorcut" Guid="21748623-ca62-4f46-8309-33776c3847e9">
-			  <Shortcut Id="MainShorcutExe" Name ="TestConsole" Target="[#filwuRcm__rfdbi1KpfXlyCIyhvLA0T]" Icon="icon.exe"/>
+			  <Shortcut Id="MainShorcutExe" Name ="TestConsole" Target="[#TestApplication]" Icon="icon.exe"/>
 			  <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
 			  <RegistryValue Root="HKCU" Key="Software\Microsoft\MyApplicationName" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
 		  </Component>
@@ -12,6 +16,7 @@
 	<Fragment>
 		<ComponentGroup Id ="ShortcutComponent">
 			<ComponentRef Id ="ApplicationShorcut"/>
+			<ComponentRef Id ="TestApplication"/>
 		</ComponentGroup>
 	</Fragment>
 </Wix>
