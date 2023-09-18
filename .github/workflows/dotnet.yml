@@ -24,8 +24,8 @@ jobs:
       run: dotnet build 'TestSrc/TestConsole.csproj' -c Release
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.1
-    - name: Build msi
-      run: msbuild 'PackageBuilder/TestPackage.wixproj' /p:Configuration="Release"
+    - name: Create MSI Installer
+      run: msbuild -Restore 'PackageBuilder/TestPackage.wixproj' /p:Configuration="Release"
     - name: Zip files
       uses: vimtor/action-zip@v1
       with:
