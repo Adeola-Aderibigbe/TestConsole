@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Fragment>
+	  <DirectoryRef Id ="ApplicationProgramFolder">
+		  <Component Id="ApplicationShorcut" Guid="21748623-ca62-4f46-8309-33776c3847e9">
+			  <Shortcut Id="MainShorcutExe" Name ="TestConsole" Target="[#filwuRcm__rfdbi1KpfXlyCIyhvLA0T]" Icon="icon.exe"/>
+			  <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+			  <RegistryValue Root="HKCU" Key="Software\Microsoft\MyApplicationName" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+		  </Component>
+	  </DirectoryRef>
+  </Fragment>
+	<Fragment>
+		<ComponentGroup Id ="ShortcutComponent">
+			<ComponentRef Id ="ApplicationShorcut"/>
+		</ComponentGroup>
+	</Fragment>
+</Wix>
