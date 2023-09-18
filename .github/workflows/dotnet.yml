@@ -22,6 +22,8 @@ jobs:
       run: dotnet restore 'TestSrc/TestConsole.csproj'
     - name: Build project
       run: dotnet build 'TestSrc/TestConsole.csproj' -c Release
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.1
     - name: Build msi
       run: msbuild /p:Configuration="Release"
     - name: Zip files
