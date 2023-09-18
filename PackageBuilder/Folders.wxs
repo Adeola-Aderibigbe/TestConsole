@@ -3,5 +3,8 @@
     <StandardDirectory Id="ProgramFiles6432Folder">
       <Directory Id="INSTALLFOLDER" Name="TestingConsolePackage" />
     </StandardDirectory>
+	  <Directory Id ="ProgramMenuFolder">
+		  <Directory Id ="ApplicationProgramFolder" Name="TestConsole"/>
+	  </Directory>
   </Fragment>
 </Wix>
